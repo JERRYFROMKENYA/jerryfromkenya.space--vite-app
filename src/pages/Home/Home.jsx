@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
     <HeroSection />
-    {/*Home section*/}
+    {/* Home section */}
     <Cards />
 
 

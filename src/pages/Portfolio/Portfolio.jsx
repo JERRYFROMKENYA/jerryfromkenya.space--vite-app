@@ -1,6 +1,6 @@
 import React from 'react'
 //import Portfoliotext from './Portfoliotext'
-import './assets/portfolio.css'
+import './portfolio.css'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 //import Animate from './Animate'
 

@@ -1,0 +1,85 @@
+*
+{
+    
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.login
+{
+height: calc(100vh - 50px);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+
+background-size: cover;
+}
+.logintitle
+{
+    font-weight: bolder;
+    font-size: 50px;
+    color: white;
+
+}
+.loginform
+{
+    background:rgba(0, 0, 0, 0) ;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.loginform > label
+{
+    color: whitesmoke;
+    margin: 10px 0;
+
+}
+.logininput
+{
+    outline: none;
+    padding-left: 10px;
+    border-radius: 70px;
+    background-color: rgba(46, 11, 40, 0.377);
+    color: white;
+    border: none;
+    border-top: 1px gray solid;
+    width: 200px;
+    height: 20px;
+}
+.logininput::placeholder
+{
+    color: rgba(255, 255, 255, 0.466);
+    
+}
+.logininput:focus
+{
+    outline: none;
+    border-bottom: 2px rgb(240, 237, 240) solid;
+    border-radius: 70px;
+    width: 200px;
+    border-top: none;
+}
+.loginbutton
+{
+    
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: rgb(5, 3, 4);
+    border:none;
+    color: white;
+    border-radius: 70px;
+    padding: 10px;
+
+}
+
+.registerbutton
+{
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    border:none;
+    color: rgb(0, 0, 0);
+    border-radius: 70px;
+    padding: 10px;
+
+}

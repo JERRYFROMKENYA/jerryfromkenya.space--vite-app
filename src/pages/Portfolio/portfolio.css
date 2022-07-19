@@ -6,21 +6,25 @@
   --spacing: 350px;
   --light-bg: rgba(240, 240, 240, 0.952);
 
+  
+}
+.portfolio
+{
   font-family: brandon-grotesque, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-a{
+.portfolio a{
     text-decoration: none;
     color: gray;
 }
-body
+.portfolio
 {
     background: linear-gradient(to right,white,gray,black);
     
 }
-main {
+.portfolio main {
   width: 100vw;
   color: white;
   z-index: 99;
@@ -33,7 +37,7 @@ main {
   grid-template-columns: repeat(12, 1fr);
 }
 
-h1, h2, h3, blockquote {
+.portfolio h1, .portfolio h2, .portfolio h3, .portfolio blockquote {
   font-family: elevon, sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -82,31 +86,30 @@ canvas {
   .left {
     grid-column: 6 / 12;
   }
-
-  @media screen and (max-width: 960px)
+ @media screen and (max-width: 960px)
    {
     
-    header {
+    .portfolio header {
         background: var(--light-bg);
         grid-column: 1 / span 12;
         font-size: 2rem;
         padding: 2rem;
         margin-bottom: var(--spacing);
       }
-      blockquote p {
+      .portfolio blockquote p {
         color: black;
         background-color: white;
         font-size: 2rem;
         display: inline;
         line-height: 1.5;
     }
-    h2 {
+     .portfolio h2 {
         font-family: elevon, sans-serif;
         font-weight: 700;
         font-style: normal;
         font-size: 28px;
     }
-    .light
+    .portfolio .light
     {
         grid-column: 2 / 8;
     padding: 1rem;
@@ -116,7 +119,7 @@ canvas {
     margin-bottom: var(--spacing);
 
     }
-    .longwrd
+    .portfolio .longwrd
     {
         font-size: 16px;
     }

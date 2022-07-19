@@ -1,0 +1,80 @@
+*
+{
+    
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.register
+{
+height: calc(100vh - 50px);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+background-size: cover;
+}
+.registertitle
+{
+    font-weight: bolder;
+    font-size: 50px;
+    color: white;
+
+}
+.registerform
+{
+    background:rgba(0, 0, 0, 0) ;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.registerform > label
+{
+    color: white;
+    margin: 10px 0;
+
+}
+.registerinput
+{
+    outline: none;
+    padding-left: 10px;
+    border-radius: 70px;
+    background-color: rgba(255, 255, 255, 0.164);
+    color: white;
+    border: none;
+    width: 250px;
+    height: 50px;
+}
+.registerinput::placeholder
+{
+    color: rgba(0, 0, 0, 0.466);
+    
+}
+.registerinput:focus
+{
+    outline: none;
+    border-bottom: 2px rgb(255, 255, 255) solid;
+    border-radius: 70px;
+    border-top: none;
+
+}
+.registersignupbutton
+{
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    border:none;
+    color: rgb(0, 0, 0);
+    border-radius: 70px;
+    padding: 10px;
+
+}
+.loginsignupbutton
+{
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: rgb(0, 0, 0);
+    border:none;
+    color: rgb(0, 0, 0);
+    border-radius: 70px;
+    padding: 10px;
+}

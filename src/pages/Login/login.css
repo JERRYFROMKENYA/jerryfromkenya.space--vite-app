@@ -5,6 +5,7 @@
 }
 .login
 {
+background: linear-gradient(to left, black, grey,white);
 height: calc(100vh - 50px);
 display: flex;
 flex-direction: column;
@@ -44,7 +45,7 @@ background-size: cover;
     border: none;
     border-top: 1px gray solid;
     width: 200px;
-    height: 20px;
+    height: 40px;
 }
 .logininput::placeholder
 {
@@ -76,9 +77,9 @@ background-size: cover;
 {
     margin-top: 20px;
     cursor: pointer;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(3, 3, 3);
     border:none;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     border-radius: 70px;
     padding: 10px;
 

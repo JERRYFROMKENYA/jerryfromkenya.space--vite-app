@@ -1,0 +1,17 @@
+.news
+{
+    flex:9;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+@media screen and (max-width: 960px)  
+
+{
+    .news
+{
+    flex:9;
+    display: grid;
+    flex-wrap: wrap;
+}
+}

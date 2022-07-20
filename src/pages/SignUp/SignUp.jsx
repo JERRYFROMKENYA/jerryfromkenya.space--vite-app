@@ -26,11 +26,11 @@ export default function Register() {
      <button className="registersignupbutton">
     Register
     </button>
-    <button className="loginsignupbutton">
-    <Link className="link" to="/login">LOGIN</Link>
-    </button>
+    
     </form>
-   
+   <button className="loginsignupbutton">
+    <Link className="link" to="/login">Sign In</Link>
+    </button>
     </div>
   )
 }

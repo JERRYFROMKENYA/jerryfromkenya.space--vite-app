@@ -1,0 +1,12 @@
+.Home
+{
+    display: flex;
+}
+@media screen and (max-width: 960px)  
+
+{
+    .Home
+{
+    display: grid;
+}
+}

@@ -5,6 +5,7 @@
 }
 .register
 {
+background: linear-gradient(to left, black, grey,white);
 height: calc(100vh - 50px);
 display: flex;
 flex-direction: column;

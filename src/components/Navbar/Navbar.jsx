@@ -1,11 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import "./navbar.css"
-import { BrowserRouter as Router, Route, Routes ,Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes ,Link, useNavigate } from 'react-router-dom'
 import { Button } from '../Button/Button';
+import {signOut} from 'firebase/auth';
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
+  const header = useRef("JFK.SPC");
+  
   
 
   const handleClick = () => setClick(!click);
@@ -18,7 +21,7 @@ function Navbar() {
       setButton(true);
     }
   };
-  function header () {
+  const showHeader = () => {
     if (window.innerWidth <= 960) {
       document.getElementById('header').innerHTML="JFK.SPC";
     } else {
@@ -30,8 +33,22 @@ function Navbar() {
     showButton();
   }, []);
 
+  useEffect(() => {
+    showHeader();
+  }, []);
+
   window.addEventListener('resize', showButton);
-  window.addEventListener('resize', header);
+  window.addEventListener('resize', showHeader);
+  let isAuth = localStorage.getItem('isAuth');
+  let navigate = useNavigate();
+  const signUserOut = () =>{
+    signOut(auth).then(() =>{
+      localStorage.clear();
+      isAuth = false;
+      navigate("/login")
+    }
+    )
+  }
 
 
   return (
@@ -40,7 +57,7 @@ function Navbar() {
         <div className='navbar-container'>
 
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            <div id="header"> JFK.SPC </div>
+            <div id="header"> {/*PROPRER HEADER*/} </div>
             <i className='fab fa-typo3' />
           </Link>
 
@@ -51,6 +68,11 @@ function Navbar() {
             <li className='nav-item'>
               <Link to='/' className='nav-links' onClick={closeMobileMenu}>
               HOME
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link to='/blog/' className='nav-links' onClick={closeMobileMenu}>
+              BLOG
               </Link>
             </li>
             <li className='nav-item'>
@@ -74,15 +96,16 @@ function Navbar() {
 
             <li>
               <Link
-                to='/sign-up'
+                to='/signup'
                 className='nav-links-mobile'
                 onClick={closeMobileMenu}
               >
                 <i className="fa-solid fa-user"></i>
               </Link>
             </li>
+            
           </ul>
-          {button && <Button buttonStyle='btn--outline' link='/signup'> <i className="fa-solid fa-user"></i> </Button>}
+           {button && <Button  link={isAuth ?'/settings' : '/login'}> {isAuth ? <i className="fa-solid fa-user-gear"></i> : <i className="fa-solid fa-user"></i>} </Button>}
         </div>
       </nav>
     </>

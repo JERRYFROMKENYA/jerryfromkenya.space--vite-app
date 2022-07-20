@@ -4,13 +4,14 @@ import './herosection.css'
 
 
 
-function HeroSection() {
+function HeroSection(props) {
   return (
     <div className='hero-container'>
-        <video src='./videos/video-1.mp4' autoPlay loop muted />
-        <h1>Welcome</h1>
-        <h2>to</h2>
-        <h3> jerrfromkenya.space</h3>
+        <video src={`${props.video}`} autoPlay loop muted />
+        <h1>{props.main}</h1>
+        <h2>{props.sub}</h2>
+        <h3> {props.title}</h3>
+        
         <p></p>
         <div className="hero-btns">
             <Button className='btns' link='/portfolio' buttonStyle='btn--outline'

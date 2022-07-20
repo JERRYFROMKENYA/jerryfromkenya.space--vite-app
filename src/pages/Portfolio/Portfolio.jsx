@@ -2,20 +2,21 @@ import React from 'react'
 //import Portfoliotext from './Portfoliotext'
 import './portfolio.css'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
+import Canvas from '../../components/Canvas/Canvas'
 //import Animate from './Animate'
 
 let o=0
 let v=0
 function Portfolio() {
   return (
+     <Canvas video='./videos/video-1.mp4'>
     <div className='portfolio'>
-
-      
-      
-    <canvas className="bg" id="bg"></canvas>
-    
-    <Parallax pages={6}>
  
+  <Parallax pages={6}>
+    <ParallaxLayer offset={0} factor={12}>
+
+    </ParallaxLayer>
+   
        <ParallaxLayer offset={0} speed={0} factor={6} sticky={true}>
          <header className='pfheader'>
          <h1>Jerry Ochieng</h1>
@@ -95,8 +96,16 @@ function Portfolio() {
      </main> 
  
      </div>
+</div>
+    </Canvas>
+
+      
+      
+    
+    
+    
    
-       </div>
+       
     
     
   )

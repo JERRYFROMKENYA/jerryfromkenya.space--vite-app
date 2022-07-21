@@ -3,13 +3,13 @@ import "./navbar.css"
 import { BrowserRouter as Router, Route, Routes ,Link, useNavigate } from 'react-router-dom'
 import { Button } from '../Button/Button';
 import {signOut} from 'firebase/auth';
+import  { auth } from '../../firebase-config'
 
-function Navbar() {
+function Navbar(props) {
+  const isAuth = props.isAuth
+  console.log(isAuth)
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
-  const header = useRef("JFK.SPC");
-  
-  
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -28,7 +28,7 @@ function Navbar() {
       document.getElementById('header').innerHTML="jerryfromkenya.space";
     }
   };
-
+   
   useEffect(() => {
     showButton();
   }, []);
@@ -39,17 +39,22 @@ function Navbar() {
 
   window.addEventListener('resize', showButton);
   window.addEventListener('resize', showHeader);
-  let isAuth = localStorage.getItem('isAuth');
+  
   let navigate = useNavigate();
-  const signUserOut = () =>{
-    signOut(auth).then(() =>{
+  const signUserOut = () =>
+  {
+    signOut(auth).then(() => 
+    {
       localStorage.clear();
-      isAuth = false;
-      navigate("/login")
-    }
-    )
-  }
+      props.setIsAuth(false);
+      
 
+    })
+  }
+ 
+
+
+  
 
   return (
     <>
@@ -84,7 +89,7 @@ function Navbar() {
                 PORTFOLIO
               </Link>
             </li>
-            <li className='nav-item'>
+            {/*<li className='nav-item'>
               <Link
                 to='/shop'
                 className='nav-links'
@@ -92,8 +97,15 @@ function Navbar() {
               >
                 SHOP
               </Link>
+            </li>*/}<li className='nav-item'>
+              {isAuth && <Link
+                to='/login'
+                className='nav-links'
+                onClick={signUserOut}
+              >
+                SIGN OUT
+              </Link>}
             </li>
-
             <li>
               <Link
                 to='/signup'
@@ -102,6 +114,7 @@ function Navbar() {
               >
                 <i className="fa-solid fa-user"></i>
               </Link>
+              
             </li>
             
           </ul>

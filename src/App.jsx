@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import { BrowserRouter as Router, Route, Routes ,Link } from 'react-router-dom'
@@ -11,10 +11,24 @@ import Single from './pages/Single/Single'
 import Blog from './pages/Blog/Blog'
 function App() {
   const [isAuth, setIsAuth] = useState(false);
+  const checkLocalSignIn =() =>
+  {
+    if (localStorage.getItem("isAuth", true) != null)
+    {
+      setIsAuth(true)
+    }
+    else
+    {
+      setIsAuth(false);
+    }
+  }
+  useEffect(() => {
+    checkLocalSignIn();
+  }, []);
   return (
     <>
     <Router>
-    <Navbar />
+    <Navbar isAuth={isAuth} setIsAuth={setIsAuth}/>
     <Routes>
 
       <Route path='/' exact element={<Home/>}/>

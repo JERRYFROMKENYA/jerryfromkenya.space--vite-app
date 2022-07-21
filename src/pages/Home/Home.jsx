@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import HeroSection from '../../components/HeroSection/HeroSection'
 import Cards from '../../components/Cards/Cards'
 import { Button } from '../../components/Button/Button'
-import './home.css'
+import './Home.css'
 
 
 

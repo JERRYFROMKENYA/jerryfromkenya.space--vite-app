@@ -125,7 +125,7 @@ onAuthStateChanged(auth, (currentuser => {
             </li>
             
           </ul>
-           {button && <Button  link={isAuth ?'/settings' : '/login'}> {isAuth ? <i className="fa-solid fa-user-gear">{user.email}</i> : <i className="fa-solid fa-user"></i>} </Button>}
+           {button && <Button  link={isAuth ?'/settings' : '/login'}> {isAuth ? <i className="fa-solid fa-user-gear">{user?.email}</i> : <i className="fa-solid fa-user"></i>} </Button>}
         </div>
       </nav>
     </>

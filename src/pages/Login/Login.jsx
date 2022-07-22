@@ -29,14 +29,17 @@ export default function Login({setIsAuth}) {
   const [loginPassword, setLoginPassword] = useState("");
   const login = async ()  =>
   {
-
+    try
+    {const user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+    console.log(user);}
+    catch (error){console.log(error.message)};
   }
 
   return (
     <div className="login">
     <button className="registerbutton" onClick={signInWithGoogle}> SIGN IN WITH <i class="fa-brands fa-google"></i></button>
     
-    <form  className="loginform">
+    <form  className="loginform" onSubmit={login}>
     <span className="logintitle">LOGIN</span>
     <label >Email Address</label>
     <input className="logininput" type="email" placeholder="Enter your Email..."
@@ -45,7 +48,7 @@ export default function Login({setIsAuth}) {
     <input  className="logininput" type="password" placeholder="Enter your password..."
       onChange={(event) => {setLoginPassword(event.target.value)}}
     />
-     <button className="loginbutton">
+     <button className="loginbutton" type="submit">
     Login
     </button> 
    

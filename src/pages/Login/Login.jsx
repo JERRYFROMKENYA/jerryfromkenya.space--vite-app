@@ -1,6 +1,6 @@
 import "./login.css";
 import {auth, provider} from '../../firebase-config'
-import { signInWithPopup } from 'firebase/auth'
+import { signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from "react-router-dom";
 import 
 {
@@ -9,6 +9,7 @@ import
   //Route,
   Link
 } from "react-router-dom";
+import { useState } from "react";
 
 export default function Login({setIsAuth}) {
 
@@ -24,6 +25,12 @@ export default function Login({setIsAuth}) {
     })
 
   };
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const login = async ()  =>
+  {
+
+  }
 
   return (
     <div className="login">
@@ -32,9 +39,12 @@ export default function Login({setIsAuth}) {
     <form  className="loginform">
     <span className="logintitle">LOGIN</span>
     <label >Email Address</label>
-    <input className="logininput" type="email" placeholder="Enter your Email..."/>
+    <input className="logininput" type="email" placeholder="Enter your Email..."
+    onChange={(event) => {setLoginEmail(event.target.value)}}/>
     <label >Password</label>
-    <input  className="logininput" type="password" placeholder="Enter your password..."/>
+    <input  className="logininput" type="password" placeholder="Enter your password..."
+      onChange={(event) => {setLoginPassword(event.target.value)}}
+    />
      <button className="loginbutton">
     Login
     </button> 

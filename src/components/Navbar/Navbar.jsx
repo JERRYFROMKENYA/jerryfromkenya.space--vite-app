@@ -2,11 +2,18 @@ import React, {useState, useEffect, useRef} from 'react'
 import "./navbar.css"
 import { BrowserRouter as Router, Route, Routes ,Link, useNavigate } from 'react-router-dom'
 import { Button } from '../Button/Button';
-import {signOut} from 'firebase/auth';
+import {signOut,onAuthStateChanged} from 'firebase/auth';
 import  { auth } from '../../firebase-config'
 
 function Navbar(props) {
   const isAuth = props.isAuth
+  const [user, setUser] =useState({})
+
+
+onAuthStateChanged(auth, (currentuser => {
+  setUser(currentuser)
+}))
+
   console.log(isAuth)
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
@@ -118,7 +125,7 @@ function Navbar(props) {
             </li>
             
           </ul>
-           {button && <Button  link={isAuth ?'/settings' : '/login'}> {isAuth ? <i className="fa-solid fa-user-gear"></i> : <i className="fa-solid fa-user"></i>} </Button>}
+           {button && <Button  link={isAuth ?'/settings' : '/login'}> {isAuth ? <i className="fa-solid fa-user-gear">{user.email}</i> : <i className="fa-solid fa-user"></i>} </Button>}
         </div>
       </nav>
     </>

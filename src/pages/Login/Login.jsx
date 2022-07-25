@@ -37,7 +37,7 @@ export default function Login({setIsAuth}) {
 
   return (
     <div className="login">
-    <button className="registerbutton" onClick={signInWithGoogle}> SIGN IN WITH <i class="fa-brands fa-google"></i></button>
+    <button className="registerbutton" onClick={signInWithGoogle}> SIGN IN WITH <i className="fa-brands fa-google"></i></button>
     
     <form  className="loginform" onSubmit={login}>
     <span className="logintitle">LOGIN</span>

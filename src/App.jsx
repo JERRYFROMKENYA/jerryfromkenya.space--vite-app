@@ -22,9 +22,9 @@ function App() {
       setIsAuth(false);
     }
   }
-  useEffect(() => {
+  {/*useEffect(() => {
     checkLocalSignIn();
-  }, []);
+  }, []);*/}
   return (
     <>
     <Router>

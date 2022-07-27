@@ -9,7 +9,13 @@ import SignUp from './pages/SignUp/SignUp'
 import Write from './pages/Write/Write'
 import Single from './pages/Single/Single'
 import Blog from './pages/Blog/Blog'
+import {signOut,onAuthStateChanged} from 'firebase/auth';
+import  { auth } from './firebase-config'
 function App() {
+  const [user, setUser] =useState({})
+  onAuthStateChanged(auth, (currentuser => {
+    setUser(currentuser)
+  }))
   const [isAuth, setIsAuth] = useState(false);
   const checkLocalSignIn =() =>
   {
@@ -28,12 +34,12 @@ function App() {
   return (
     <>
     <Router>
-    <Navbar isAuth={isAuth} setIsAuth={setIsAuth}/>
+    <Navbar user={user}/>
     <Routes>
 
       <Route path='/' exact element={<Home/>}/>
       <Route path='/portfolio' element={<Portfolio/>}/>
-      <Route path='/login' element={<Login setIsAuth={setIsAuth} />} />
+      <Route path='/login' element={<Login/>} />
       <Route path='/blog/write' element={<Write/>} />
       <Route path='/blog/post' element={<Single/>} />
       <Route path='/blog/' exact element={<Blog/>} />

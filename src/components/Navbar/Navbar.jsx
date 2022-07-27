@@ -5,16 +5,13 @@ import { Button } from '../Button/Button';
 import {signOut,onAuthStateChanged} from 'firebase/auth';
 import  { auth } from '../../firebase-config'
 
-function Navbar(props) {
+function Navbar({ user }) {
   {/*const isAuth = props.isAuth*/}
-  const [user, setUser] =useState({})
+  
 
 
-onAuthStateChanged(auth, (currentuser => {
-  setUser(currentuser)
-}))
 
-  {/*console.log(isAuth)*/}
+  console.log("Auth State is:"+" "+"props.isAuth")
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -123,7 +120,7 @@ onAuthStateChanged(auth, (currentuser => {
             </li>
             
           </ul>
-           {button && <Button  link={user ?'/settings' : '/login'}> {user ? <i className="fa-solid fa-user-gear">{user?.email}</i> : <i className="fa-solid fa-user"></i>} </Button>}
+           {button && <Button  link={user ?'/settings' : '/login'}> {user ? <i className="fa-solid fa-user-gear">{/*user?.email*/}</i> : <i className="fa-solid fa-user"></i>} </Button>}
         </div>
       </nav>
     </>

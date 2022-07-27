@@ -19,11 +19,11 @@ export default function Sidebar() {
         </div>
         <div className="sidebarItem">
         
-        <span className="sidebarTitle">Follow us</span>
+        <span className="sidebarTitle">Follow Jerr</span>
                 <div className="sidebarSocialContainer">
-    <i className="SideIcon fa-brands fa-facebook"></i>
-    <i className="SideIcon fa-brands fa-twitter"></i>
-    <i className="SideIcon fa-brands fa-instagram"></i>
+    <a href="https://facebook.com"><i className="SideIcon fa-brands fa-facebook"></i></a>
+    <a href="https://twitter.com/JERRYFROMKENYA"><i className="SideIcon fa-brands fa-twitter"></i></a> 
+    <a href="https://instagram.com/JERRYFROMKENYA"><i className="SideIcon fa-brands fa-instagram"></i></a> 
                 </div>
         </div>
     </div>

@@ -10,3 +10,5 @@ export default function Single() {
     </div>
   )
 }
+
+//adding to my contributions-- just reinstalled windows; 2022-07-26

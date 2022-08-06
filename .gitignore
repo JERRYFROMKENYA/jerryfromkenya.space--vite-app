@@ -31,3 +31,4 @@ firebase.json
 y/*
 *.firebase/*
 *.github?*
+**vite.config.js

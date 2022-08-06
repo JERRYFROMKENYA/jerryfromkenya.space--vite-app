@@ -13,20 +13,20 @@ function Cards() {
             <ul className="cards__items">
                 <CardItem 
                   src="images/img-2.jpg"
-                  text="travel and shit"
-                  label='label'
+                  text="Placeholder"
+                  label='Label'
                   path='/services'
                 />
                 <CardItem 
                   src="images/img-2.jpg"
-                  text="nothing"
+                  text="Placeholder"
                   label='label'
                   path='/services'
                 />
                 <CardItem 
                   src="images/health.jpg"
-                  text="For Affordable Medical Cover!"
-                  label='Medicare'
+                  text="Placeholder"
+                  label='Label'
                   path='/services'
                 />
             </ul>
@@ -36,16 +36,16 @@ function Cards() {
             <ul className="cards__items">
                 <CardItem 
                   src="images/vehicle.jpg"
-                  text="Get Cover for your motor vehicle"
-                  label='Motor Insurace'
+                  text="Placeholder"
+                  label='Label'
                   path='/services'
                 />
             </ul>
             <ul className="cards__items">
                 <CardItem 
                   src="images/home.jpg"
-                  text="Get your home covered"
-                  label='Home Cover'
+                  text="Placeholder"
+                  label='Label'
                   path='/services'
                 />
             </ul>

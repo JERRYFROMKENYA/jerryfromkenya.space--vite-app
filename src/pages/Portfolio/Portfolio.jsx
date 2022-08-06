@@ -5,10 +5,14 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import './portfolio.css'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 
+reload
 
 let o=0
 let v=0
 function Portfolio() {
+
+//background animation-->
+
 
 const background = () =>
   {
@@ -35,7 +39,7 @@ scene.add(torus)
 //lighting
 const pointLight= new THREE.PointLight(0xffffff)
 pointLight.position.set(20,20,20)
-//ambiient lighting
+//ambiient ligavatar
 const ambientLight= new THREE.AmbientLight(0xffffff)
 
 //scene add for lighting
@@ -115,13 +119,16 @@ document.body.onscroll = moveCamera */}
 scene.add(moon);
 
 
-
 function animate(){
   requestAnimationFrame( animate );
 
 torus.rotation.x +=0.01;
 torus.rotation.y +=0.005;
 torus.rotation.z +=0.01;
+
+avatar.rotation.x +=0.01;
+avatar.rotation.y +=0.005;
+avatar.rotation.z +=0.01;
 
 controls.update();
 

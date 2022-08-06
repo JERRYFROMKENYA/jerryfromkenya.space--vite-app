@@ -1,21 +1,21 @@
 import "./sidebar.css"
 
-export default function Sidebar() {
+export default function Sidebar(props) {
   return (
     <div className="sidebar">
         <div className="sidebarItem">
-            <span className="sidebarTitle">ABOUT</span>
-           <img src="" alt="about"></img>
-            <p>lorem ipsum dolor sit amet considarate</p>
+            <span className="sidebarTitle">ABOUT JERR</span>
+           <img src="#" alt="Sidebar Image"></img>
+            <p></p>
         </div>
         <div className="sidebarItem">
         <span className="sidebarTitle">CATEGORIES</span>
-        <ul className="sidebarList">
+        {/*<ul className="sidebarList">
         <li className="sidebarListItem">Category 1</li>
         <li className="sidebarListItem">Category 2</li>
         <li className="sidebarListItem">Category 3</li>
         <li className="sidebarListItem"> Category 4</li>
-        </ul>
+        </ul>*/}
         </div>
         <div className="sidebarItem">
         

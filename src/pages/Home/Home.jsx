@@ -30,7 +30,7 @@ export default function Home() {
 
       <div className="hero-btns">
             <Button className='btns' link='/portfolio' buttonStyle='btn--outline'
-            buttonSize='btn--large'>CHECK MY CURRICULUM VITAE OUT.</Button>
+            buttonSize='btn--large'>CHECK MY PORTFOLIO.</Button>
              <Button className='btns' buttonStyle='btn--primary'
             buttonSize='btn--large' link='/contact'>CONTACT JERR <i className="fa-solid fa-message-code"></i>  </Button>
         </div>

@@ -5,7 +5,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import './portfolio.css'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 
-reload
+
 
 let o=0
 let v=0

@@ -10,8 +10,8 @@ function Navbar({ user }) {
   
 
 
-
-  console.log("Auth State is:"+" "+"props.isAuth")
+{/*
+console.log("Auth State is:"+" "+"props.isAuth")*/}
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -65,7 +65,7 @@ function Navbar({ user }) {
 
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             <div id="header"> {/*PROPRER HEADER*/} </div>
-            <i className='fab fa-typo3' />
+            
           </Link>
 
           <div className='menu-icon' onClick={handleClick}>

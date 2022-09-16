@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <>
  <div>
-    <HeroSection video='./videos/video-1.mp4'>
+    <HeroSection video='./videos/title.mp4'>
 
       <h1 id='wlx' >WELCOME <br />  </h1>
           <h3>to</h3>

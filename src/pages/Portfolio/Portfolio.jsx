@@ -34,8 +34,10 @@ renderer.render( scene, camera);
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100)
 const material = new THREE.MeshStandardMaterial( {color: 0xFF6347, } );
 const torus = new THREE.Mesh(geometry, material);
-//scence for shape
+//scene for shape
 scene.add(torus)
+
+
 //lighting
 const pointLight= new THREE.PointLight(0xffffff)
 pointLight.position.set(20,20,20)
@@ -47,26 +49,10 @@ scene.add(pointLight, ambientLight)
 //DEBUGGING LIGHTING
 //lighthelper
 //substantiate the light helpeer
-{/*const lightHelper = new THREE.PointLightHelper(pointLight)
-//grid helper
-const gridHelper = new THREE.GridHelper(200,50);
-scene.add(lightHelper, gridHelper)
-*/}
-//controls
+
 const controls = new OrbitControls(camera, renderer.domElement);
 
-function addStar(){
-  const geometry = new THREE.SphereGeometry(0.25,24,24)
-  const material = new THREE.MeshStandardMaterial({ color: 0xffffff})
-  const star = new THREE.Mesh(geometry, material);
 
-  const [ x, y ,z] = Array(3).fill().map(()=> THREE.MathUtils.randFloatSpread( 100 ))
-
-  star.position.set(x,y,z);
-  scene.add(star)
-}
-
-Array(200).fill().forEach(addStar)
 
 const spaceTexture = new THREE.TextureLoader().load('./assets/assets/space.jpg');
 scene.background =spaceTexture;
@@ -76,7 +62,7 @@ scene.background =spaceTexture;
 const avatarTexture =new THREE.TextureLoader().load('./assets/assets/avatar.jpg');
 
 const avatar = new THREE.Mesh(
-  new THREE.BoxGeometry(3,3,3),
+  new THREE.BoxGeometry(10,10,10),
   new THREE.MeshBasicMaterial({ map: avatarTexture})
 );
 
@@ -94,8 +80,23 @@ const moon = new THREE.Mesh(
 })
 );
 
-moon.position.z= 30;
-moon.position.setX(-10);
+let positionz=0;
+const findPosition = () => 
+{
+positionz=Math.floor(Math.random() * 30)
+
+}
+findPosition();
+
+moon.position.z= ((-1) * positionz);
+moon.position.setX(-20);
+moon.position.setY(12);
+
+torus.position.z= ((-1) * positionz);
+torus.position.setX(-5);
+torus.position.setY(-12);
+
+
 
 
 {/*function moveCamera(){
@@ -127,8 +128,18 @@ torus.rotation.y +=0.005;
 torus.rotation.z +=0.01;
 
 avatar.rotation.x +=0.01;
-avatar.rotation.y +=0.005;
 avatar.rotation.z +=0.01;
+avatar.rotation.y +=0.0005;
+
+
+
+{/*avatar2.rotation.x +=0.01;
+avatar2.rotation.z +=0.01;
+avatar2.rotation.y +=0.0005;*/}
+
+
+moon.rotation.x +=0.01;
+{/*moon.rotation.z +=0.01;*/}
 
 controls.update();
 

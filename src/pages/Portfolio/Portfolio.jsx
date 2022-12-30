@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-
 import './portfolio.css'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 
@@ -159,9 +158,7 @@ animate()
   {/** <canvas className="bg" id="bg"></canvas>*/ }
     <canvas className='canvas bg' id='bg'></canvas>
     <>
-    
     <div className='portfolio'>
-      
       <Parallax pages={5}>
    <ParallaxLayer></ParallaxLayer>
        <ParallaxLayer offset={0} speed={0} factor={7} sticky={true}>
@@ -203,7 +200,8 @@ animate()
          <h2 className='pfhtype longwrd'>🏆 Accomplishments</h2>
  
          <p>
-           3rd Best Diamond Challenge 2020. (Team Leader and CEO of Pata Goods Project.)
+           3rd Best Diamond Challenge 2020. {`\n`}
+           (Team Leader and CEO of Pata Goods Project.)
          </p>
  
        </section>
@@ -211,7 +209,9 @@ animate()
  
        <ParallaxLayer offset={o+=0.75} speed={v+=0.2} factor={1}>
        <blockquote className='pfblockquote'>
-         <p>The <b>more</b> we value <i>things</i> <br/>the <b>less</b> we value <i>Ourselves</i> <br/>-Bruce Lee</p>
+         <p>The <b>more</b> we value <i>things</i> 
+         <br/>the <b>less</b> we value <i>Ourselves</i>
+          <br/>-Bruce Lee</p>
        </blockquote>
        </ParallaxLayer>
  
@@ -222,44 +222,14 @@ animate()
          <p>Designed by <a href="https://www.github.com/jerryfromkenya">Jerry Ochieng A.</a> with Love.😁</p>
        </blockquote>
        </ParallaxLayer>
- 
- 
        </Parallax>
-       
- 
- 
-       
- 
-      
-      
- 
-       
- 
         <div>
        <main>
-       
- 
- 
      </main> 
- 
      </div>
-     
 </div>
     </>
- 
-  
-
     </>
-
-      
-      
-    
-    
-    
-   
-       
-    
-    
   )
 }
 

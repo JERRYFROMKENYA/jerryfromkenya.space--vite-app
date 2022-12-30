@@ -1,6 +1,7 @@
 .cards {
     padding: 4rem;
-    background: #fff;
+    background: rgba(255, 255, 255, 0);
+    color: #ffffff;
   }
   
   h1 {
@@ -8,6 +9,7 @@
   }
   
   .cards__container {
+    color: white;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -94,7 +96,7 @@
   }
   
   .cards__item__text {
-    color: #252e48;
+    color: #ffffff;
     font-size: 18px;
     line-height: 24px;
   }

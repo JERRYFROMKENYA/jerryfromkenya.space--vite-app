@@ -1,152 +1,193 @@
+// import "../styles.css";
+// import * as THREE from "three";
+// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+// import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
+// import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
+// import { GammaCorrectionShader } from "three/examples/jsm/shaders/GammaCorrectionShader.js";
+// import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
+// import { RGBShiftShader } from "three/examples/jsm/shaders/RGBShiftShader.js";
 import React, {useEffect} from 'react'
 import { Button } from '../Button/Button'
 import './herosection.css'
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+// import * as THREE from 'three';
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 // import background from '../Background/background';
 
 function HeroSection(props) {
-// background()
-  const background = () =>
-  {
-    const scene = new THREE.Scene();
-//create a camera, first argument(field of view, aspect-ratio[w / h],view frustrum[x,y])
-const camera = new THREE.PerspectiveCamera(  75, window.innerWidth / window.innerHeight,0.1,1000 );
-//renderer
-const renderer = new THREE.WebGLRenderer({
-canvas: document.querySelector('#bg'),
-});
-//setting the pixel ratio
-renderer.setPixelRatio( window.devicePixelRatio );
-renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.setZ(30);
-//calling the renderer's render method
-renderer.render( scene, camera);
-//shape geometry
-
-const geometry = new THREE.TorusGeometry(10, 3, 16, 100)
-const material = new THREE.MeshStandardMaterial( {color: 0xFF6347, } );
-const torus = new THREE.Mesh(geometry, material);
-//scene for shape
-scene.add(torus)
-
-
-//lighting
-const pointLight= new THREE.PointLight(0xffffff)
-pointLight.position.set(20,20,20)
-//ambiient ligavatar
-const ambientLight= new THREE.AmbientLight(0xffffff)
-
-//scene add for lighting
-scene.add(pointLight, ambientLight)
-//DEBUGGING LIGHTING
-//lighthelper
-//substantiate the light helpeer
-
-const controls = new OrbitControls(camera, renderer.domElement);
-
-
-
-const spaceTexture = new THREE.TextureLoader().load('./assets/assets/space.jpg');
-scene.background =spaceTexture;
-
-// const avatar
-
-const avatarTexture =new THREE.TextureLoader().load('./assets/assets/avatar.jpg');
-
-const avatar = new THREE.Mesh(
-  new THREE.BoxGeometry(10,10,10),
-  new THREE.MeshBasicMaterial({ map: avatarTexture})
-);
-
-scene.add(avatar);
-
-// Moon
-
-const moonTexture =new THREE.TextureLoader().load('./assets/assets/moon.jpg');
-const normalTexture =new THREE.TextureLoader().load('./assets/assets/normal.jpg');
-
-const moon = new THREE.Mesh(
-  new THREE.SphereGeometry(3,32,32),
-  new THREE.MeshBasicMaterial({ map: moonTexture,
-  normalMap: normalTexture
-})
-);
-
-let positionz=0;
-const findPosition = () => 
-{
-positionz=Math.floor(Math.random() * 30)
-
-}
-findPosition();
-
-moon.position.z= ((-1) * positionz);
-moon.position.setX(-20);
-moon.position.setY(12);
-
-torus.position.z= ((-1) * positionz);
-torus.position.setX(-5);
-torus.position.setY(-12);
-
-
-
-
-{/*function moveCamera(){
-//current position
-  const t = document.body.getBoundingClientRect().top;
-  moon.rotation.x += 0.05;
-  moon.rotation.y += 0.075;
-  moon.rotation.z += 0.05;
-
-  avatar.rotation.y += 0.01;
-  avatar.rotation.z +=0.01;
-
-  camera.position.z = t *-0.01;
-  camera.position.x = t *-0.0002;
-  camera.rotation.y = t* -0.0002;
+//   const background = () =>{
+//     const TEXTURE_PATH = "./Background/grid.png";
+//   const DISPLACEMENT_PATH = "./Background/displacement.png";
+//   const METALNESS_PATH = "./Background/metalness.png";
+  
+//   // Textures
+//   const textureLoader = new THREE.TextureLoader();
+//   const gridTexture = textureLoader.load(TEXTURE_PATH);
+//   const terrainTexture = textureLoader.load(DISPLACEMENT_PATH);
+//   const metalnessTexture = textureLoader.load(METALNESS_PATH);
+  
+//   const canvas = document.querySelector('#bg');
+  
+//   // Scene
+//   const scene = new THREE.Scene();
+  
+//   // Fog
+//   const fog = new THREE.Fog("#000000", 1, 2.5);
+//   scene.fog = fog;
+  
+//   // Objects
+//   const geometry = new THREE.PlaneGeometry(1, 2, 24, 24);
+//   const material = new THREE.MeshStandardMaterial({
+//       map: gridTexture,
+//       displacementMap: terrainTexture,
+//       displacementScale: 0.4,
+//       /**
+//        * Add a metalnessMap to our material that will tell the renderer
+//        * where the "rough" parts of our terrains are
+//        */ 
+//       metalnessMap: metalnessTexture,
+//       /**
+//        * Make the terrain very very metallic so it will reflect the light
+//        * and not diffuse it: it will stay black
+//        */ 
+//       metalness: 0.96,
+//       /**
+//        * Make the terrain a bit rough so the rough parts will diffuse the light
+//        * well
+//        */ 
+//       roughness: 0.5,
+//   });
+  
+//   const plane = new THREE.Mesh(geometry, material);
+//   plane.rotation.x = -Math.PI * 0.5;
+//   plane.position.y = 0.0;
+//   plane.position.z = 0.15;
+  
+  
+//   const plane2 = new THREE.Mesh(geometry, material);
+//   plane2.rotation.x = -Math.PI * 0.5;
+//   plane2.position.y = 0.0;
+//   plane2.position.z = -1.85; // 0.15 - 2 (the length of the first plane)
+  
+//   scene.add(plane);
+//   scene.add(plane2);
+  
+//   // Light
+//   // Ambient Light
+//   const ambientLight = new THREE.AmbientLight("#ffffff", 10);
+//   scene.add(ambientLight);
+  
+//   // Right Spotlight aiming to the left
+//   const spotlight = new THREE.SpotLight("#d53c3d", 20, 25, Math.PI * 0.1, 0.25);
+//   spotlight.position.set(0.5, 0.75, 2.2);
+//   // Target the spotlight to a specific point to the left of the scene
+//   spotlight.target.position.x = -0.25;
+//   spotlight.target.position.y = 0.25;
+//   spotlight.target.position.z = 0.25;
+//   scene.add(spotlight);
+//   scene.add(spotlight.target);
+  
+//   // Left Spotlight aiming to the right
+//   const spotlight2 = new THREE.SpotLight("#d53c3d", 20, 25, Math.PI * 0.1, 0.25);
+//   spotlight2.position.set(-0.5, 0.75, 2.2);
+//   // Target the spotlight to a specific point to the right side of the scene
+//   spotlight2.target.position.x = 0.25;
+//   spotlight2.target.position.y = 0.25;
+//   spotlight2.target.position.z = 0.25;
+//   scene.add(spotlight2);
+//   scene.add(spotlight2.target);
+  
+  
+//   // Sizes
+//   const sizes = {
+//     width: window.innerWidth,
+//     height: window.innerHeight,
+//   };
+  
+//   // Camera
+//   const camera = new THREE.PerspectiveCamera(
+//     75,
+//     sizes.width / sizes.height,
+//     0.01,
+//     20
+//   );
+//   camera.position.x = 0;
+//   camera.position.y = 0.06;
+//   camera.position.z = 1.1;
+  
+//   // Controls
+//   const controls = new OrbitControls(camera, canvas);
+//   controls.enableDamping = true;
+  
+//   // Renderer
+//   const renderer = new THREE.WebGLRenderer({
+//     canvas: canvas,
+//   });
+//   renderer.setSize(sizes.width, sizes.height);
+//   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  
+//   // Post Processing
+//   const effectComposer = new EffectComposer(renderer);
+//   effectComposer.setSize(sizes.width, sizes.height);
+//   effectComposer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  
+//   const renderPass = new RenderPass(scene, camera);
+//   effectComposer.addPass(renderPass);
+  
+//   const rgbShiftPass = new ShaderPass(RGBShiftShader);
+//   rgbShiftPass.uniforms["amount"].value = 0.0015;
+  
+//   effectComposer.addPass(rgbShiftPass);
+  
+//   const gammaCorrectionPass = new ShaderPass(GammaCorrectionShader);
+//   effectComposer.addPass(gammaCorrectionPass);
+  
+//   // Event listener to handle screen resize
+//   window.addEventListener("resize", () => {
+//       // Update sizes
+//       sizes.width = window.innerWidth;
+//       sizes.height = window.innerHeight;
+  
+//       // Update camera
+//       camera.aspect = sizes.width / sizes.height;
+//       camera.updateProjectionMatrix();
+  
+//       // Update renderer
+//       renderer.setSize(sizes.width, sizes.height);
+//       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  
+//       // Update effect composer
+//       effectComposer.setSize(sizes.width, sizes.height);
+//       effectComposer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+//   });
+  
+//   const clock = new THREE.Clock();
+  
+//   // Animate
+//   const tick = () => {
+//       const elapsedTime = clock.getElapsedTime();
+//       // Update controls
+//       controls.update();
+  
+//       plane.position.z = (elapsedTime * 0.15) % 2;
+//       plane2.position.z = ((elapsedTime * 0.15) % 2) - 2;
+  
+//       // Render
+//       // renderer.render(scene, camera);
+//       effectComposer.render();
+  
+//       // Call tick again on the next frame
+//       window.requestAnimationFrame(tick);
+//   };
+  
+//   tick();
+//   }
+  
   
 
-}
-document.body.onscroll = moveCamera */}
-
-scene.add(moon);
-
-
-function animate(){
-  requestAnimationFrame( animate );
-
-torus.rotation.x +=0.01;
-torus.rotation.y +=0.005;
-torus.rotation.z +=0.01;
-
-avatar.rotation.x +=0.01;
-avatar.rotation.z +=0.01;
-avatar.rotation.y +=0.0005;
-
-
-
-{/*avatar2.rotation.x +=0.01;
-avatar2.rotation.z +=0.01;
-avatar2.rotation.y +=0.0005;*/}
-
-
-moon.rotation.x +=0.01;
-{/*moon.rotation.z +=0.01;*/}
-
-controls.update();
-
-  renderer.render(scene,camera);
-}
-
-animate()
-
-
-  }
- useEffect(() => {
-    background();
-  }, []);
-  window.addEventListener("resize",background)
+//  useEffect(() => {
+//     background();
+//   }, []);
+//   window.addEventListener("resize",background)
   return (
     <div className='hero-container'>
      <canvas className='canvas bg' id='bg'></canvas>

@@ -4,7 +4,10 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 //import { SphereGeometry } from 'three';
 //create a scene
-const scene = new THREE.Scene();
+import React from 'react'
+
+function background() {
+  const scene = new THREE.Scene();
 //create a camera, first argument(field of view, aspect-ratio[w / h],view frustrum[x,y])
 const camera = new THREE.PerspectiveCamera(  75, window.innerWidth / window.innerHeight,0.1,1000 );
 //renderer
@@ -121,3 +124,7 @@ controls.update();
 }
 
 animate()
+}
+
+export default background()
+

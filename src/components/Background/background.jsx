@@ -1,14 +1,13 @@
-import React, {useEffect} from 'react'
-import { Button } from '../Button/Button'
-import './herosection.css'
+//import './style.css'
+//import dependancies from three
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-// import background from '../Background/background';
+//import { SphereGeometry } from 'three';
+//create a scene
+import React from 'react'
 
-function HeroSection(props) {
-// background()
-  const background = () =>
-  {
+function background() {
+  
     const scene = new THREE.Scene();
 //create a camera, first argument(field of view, aspect-ratio[w / h],view frustrum[x,y])
 const camera = new THREE.PerspectiveCamera(  75, window.innerWidth / window.innerHeight,0.1,1000 );
@@ -143,23 +142,5 @@ animate()
 
 
   }
- useEffect(() => {
-    background();
-  }, []);
-  window.addEventListener("resize",background)
-  return (
-    <div className='hero-container'>
-     <canvas className='canvas bg' id='bg'></canvas>
-        {/* <video src={`${props.video}`} autoPlay loop muted /> */}
 
-
-        {props.children}
-       
-        
-        <p></p>
-       
-    </div>
-  )
-}
-
-export default HeroSection
+export default background()

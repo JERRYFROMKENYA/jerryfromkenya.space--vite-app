@@ -75,11 +75,11 @@ scene.background =spaceTexture;
   
   // Light
   // Ambient Light
-  const ambientLight = new THREE.AmbientLight("#ffffff", 10);
+  const ambientLight = new THREE.AmbientLight("#FCFCFC", 10);
   scene.add(ambientLight);
   
   // Right Spotlight aiming to the left
-  const spotlight = new THREE.SpotLight("#d53c3d", 20, 25, Math.PI * 0.1, 0.25);
+  const spotlight = new THREE.SpotLight("#AF37AF", 20, 25, Math.PI * 0.1, 0.25);
   spotlight.position.set(0.5, 0.75, 2.2);
   // Target the spotlight to a specific point to the left of the scene
   spotlight.target.position.x = -0.25;
@@ -90,9 +90,9 @@ scene.background =spaceTexture;
   
 
   // Left Spotlight aiming to the right
-  const spotlight2 = new THREE.SpotLight("#d53c3d", 20, 25, Math.PI * 0.1, 0.25);
+  const spotlight2 = new THREE.SpotLight("#C53D3D", 20, 25, Math.PI * 0.1, 0.25);
   spotlight2.position.set(-0.5, 0.75, 2.2);
-  const spotlight3 = new THREE.SpotLight("#0026FF", 20, 25, Math.PI * 0.1, 0.25);
+  const spotlight3 = new THREE.SpotLight("#406CAF", 20, 25, Math.PI * 0.1, 0.25);
   spotlight3.position.set(+0.5, 1.75, 4.2);
   // const spotlight4 = new THREE.SpotLight("#E5FF00", 20, 25, Math.PI * 0.1, 0.25);
   // spotlight4.position.set(+0.5, 1.75, 4.2);
